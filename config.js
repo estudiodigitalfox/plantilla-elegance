@@ -28,6 +28,6 @@ colorSecundario: "#FFF0F7",
 
   modoConfirmacion: "elegance",
 
-  scriptURL: "https://script.google.com/macros/s/AKfycbz3dFMxpAvx0Q3Y82WDGl-gLzW-CZKmotWM5wiVlwbtfi2XoS_HHxStJL_JvE8Jue-v/exec"
+  scriptURL: "https://script.google.com/macros/s/AKfycbzXCnUDvb1JySf5Z6HMVjy6MZK3-etEhp0e1nak5B28FPSeCa9MPF33SEvgpmiGrgXi/exec"
 
 };
