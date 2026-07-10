@@ -4,19 +4,19 @@ const CONFIG = {
   // DATOS DEL EVENTO
   // ==========================
 
-  nombreEvento: "XV Kimberly",
+  nombreEvento: "XV Marine",
 
-  fechaLimiteTexto: "19 de diciembre de 2026",
+  fechaLimiteTexto: "15 de agosto de 2026",
 
-  fechaLimiteSistema: "2026-12-19T23:59:59",
+  fechaLimiteSistema: "2026-08-15T23:59:59",
 
   // ==========================
   // DISEÑO
   // ==========================
 
-  colorPrincipal: "#8F5BD7",
+  colorPrincipal: "#D41472",
 
-  colorSecundario: "#F2EAFF",
+colorSecundario: "#FFF0F7",
 
   animacion: "mariposas",
 
@@ -28,6 +28,6 @@ const CONFIG = {
 
   modoConfirmacion: "elegance",
 
-  scriptURL: ""
+  scriptURL: "https://script.google.com/macros/s/AKfycbzreiD6fhTklvdZdM4YEpNd3HqDcLpmOIQ98Ci3RmmiAERgQHLbeBo3yoDRXqKxfpGW/exec"
 
 };
