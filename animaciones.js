@@ -1,17 +1,38 @@
 function lanzarAnimacion() {
-  const tipo = CONFIG.animacion || "confeti";
-  const icono = ICONOS[tipo];
+  const tipoConfigurado = CONFIG.animacion || "confeti";
+  const tipoIcono = obtenerTipoIcono(tipoConfigurado);
+  const icono = ICONOS[tipoIcono];
 
   if (!icono) {
-    console.warn(`Animación no encontrada: ${tipo}`);
+    console.warn(`Animación no encontrada: ${tipoConfigurado}`);
     return;
   }
 
-  const totalElementos = obtenerCantidad(tipo);
+  const totalElementos = obtenerCantidad(tipoConfigurado);
 
   for (let i = 0; i < totalElementos; i++) {
-    crearElementoAnimado(tipo, icono, i);
+    crearElementoAnimado(tipoConfigurado, icono);
   }
+}
+
+function obtenerTipoIcono(tipo) {
+  const equivalencias = {
+    flores: "flor",
+    mariposas: "mariposa",
+    corazones: "corazon",
+    anillos: "anillos",
+    palomas: "paloma",
+    birretes: "birrete",
+    estrellas: "estrella",
+    hojas: "hoja",
+    globos: "globo",
+    confeti: "confeti",
+    ositos: "osito",
+    copos: "copo",
+    arbolitos: "arbolito"
+  };
+
+  return equivalencias[tipo] || tipo;
 }
 
 function obtenerCantidad(tipo) {
@@ -21,20 +42,20 @@ function obtenerCantidad(tipo) {
     mariposas: 18,
     corazones: 22,
     anillos: 16,
-    paloma: 5,
-    birrete: 18,
-    estrella: 24,
-    hoja: 22,
-    globo: 15,
-    osito: 14,
-    copo: 28,
-    arbolito: 16
+    palomas: 5,
+    birretes: 18,
+    estrellas: 24,
+    hojas: 22,
+    globos: 15,
+    ositos: 14,
+    copos: 28,
+    arbolitos: 16
   };
 
   return cantidades[tipo] || 20;
 }
 
-function crearElementoAnimado(tipo, icono, indice) {
+function crearElementoAnimado(tipo, icono) {
   const elemento = document.createElement("div");
 
   elemento.classList.add(
@@ -44,9 +65,15 @@ function crearElementoAnimado(tipo, icono, indice) {
   );
 
   elemento.innerHTML = icono;
-  elemento.style.left = `${Math.random() * 95}%`;
   elemento.style.animationDelay = `${Math.random() * 1.2}s`;
   elemento.style.animationDuration = `${3.5 + Math.random() * 2}s`;
+
+  if (tipo === "palomas") {
+    elemento.style.left = "-80px";
+    elemento.style.top = `${10 + Math.random() * 55}%`;
+  } else {
+    elemento.style.left = `${Math.random() * 95}%`;
+  }
 
   if (debeCambiarColor(tipo)) {
     elemento.style.color = CONFIG.colorPrincipal;
@@ -64,11 +91,11 @@ function obtenerClaseMovimiento(tipo) {
     return "animacion-mariposa";
   }
 
-  if (tipo === "globo") {
+  if (tipo === "globos") {
     return "animacion-globo";
   }
 
-  if (tipo === "paloma") {
+  if (tipo === "palomas") {
     return "animacion-paloma";
   }
 
@@ -90,8 +117,8 @@ function debeCambiarColor(tipo) {
     "flores",
     "mariposas",
     "corazones",
-    "estrella",
-    "globo",
+    "estrellas",
+    "globos",
     "confeti"
   ];
 
